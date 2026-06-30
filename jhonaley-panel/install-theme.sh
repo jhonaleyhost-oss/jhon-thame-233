@@ -57,11 +57,21 @@ BK_FILES="$BACKUP_DIR/panel-files-$TS.tar.gz"
 BK_DB="$BACKUP_DIR/panel-db-$TS.sql.gz"
 
 info "Backup file panel → $BK_FILES"
-tar -czf "$BK_FILES" -C "$(dirname "$PANEL_DIR")" "$(basename "$PANEL_DIR")" \
+set +e
+tar --warning=no-file-changed --warning=no-file-removed \
     --exclude="$(basename "$PANEL_DIR")/node_modules" \
     --exclude="$(basename "$PANEL_DIR")/vendor" \
-    --exclude="$(basename "$PANEL_DIR")/storage/logs/*" 2>/dev/null
-ok "File backup: $(du -h "$BK_FILES" | cut -f1)"
+    --exclude="$(basename "$PANEL_DIR")/storage/logs" \
+    --exclude="$(basename "$PANEL_DIR")/storage/framework/cache" \
+    -czf "$BK_FILES" -C "$(dirname "$PANEL_DIR")" "$(basename "$PANEL_DIR")"
+TAR_EXIT=$?
+set -e
+# tar exit 1 = file berubah saat dibaca (normal untuk panel running), masih valid
+if [ $TAR_EXIT -eq 0 ] || [ $TAR_EXIT -eq 1 ]; then
+    ok "File backup: $(du -h "$BK_FILES" | cut -f1)"
+else
+    err "Backup gagal (tar exit $TAR_EXIT). Cek disk space: df -h"
+fi
 
 if command -v mysqldump >/dev/null; then
     info "Backup database '$DB_NAME' → $BK_DB"
