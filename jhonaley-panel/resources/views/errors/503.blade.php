@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>503 Under Maintenance - {{ config('app.name', 'AlxZen Panel') }}</title>
+    <title>503 Under Maintenance - {{ config('app.name', 'Jhonaley Store Panel') }}</title>
     <style>
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -71,7 +71,7 @@
         <h2>Under Maintenance</h2>
         <p>The panel is currently down for scheduled maintenance or upgrades. Please check back shortly.</p>
         <a href="javascript:window.location.reload();">Reload Page</a>
-        <div class="brand">AlxZen Panel</div>
+        <div class="brand">Jhonaley Store Panel</div>
     </div>
 </body>
 </html>

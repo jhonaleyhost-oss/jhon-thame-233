@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>500 Server Error - {{ config('app.name', 'AlxZen Panel') }}</title>
+    <title>500 Server Error - {{ config('app.name', 'Jhonaley Store Panel') }}</title>
     <style>
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -70,7 +70,7 @@
         <h2>Server Error</h2>
         <p>Something went wrong on our end. The server encountered an internal error and could not complete your request.</p>
         <a href="/">Return to Dashboard</a>
-        <div class="brand">AlxZen Panel</div>
+        <div class="brand">Jhonaley Store Panel</div>
     </div>
 </body>
 </html>

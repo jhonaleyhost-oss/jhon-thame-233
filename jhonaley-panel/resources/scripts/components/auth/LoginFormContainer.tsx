@@ -52,7 +52,7 @@ const FormWrapper = styled(motion.div)`
 `;
 
 const LoginFormContainer = forwardRef<HTMLFormElement, Props>(({ title, ...props }, ref) => {
-    const name = useStoreState((state: ApplicationStore) => state.settings.data?.name ?? 'AlxZen Panel');
+    const name = useStoreState((state: ApplicationStore) => state.settings.data?.name ?? 'Jhonaley Store Panel');
     const logo = useStoreState((state: ApplicationStore) => state.settings.data?.logo ?? '');
 
     // Split name: last word becomes the highlighted span, rest is plain text

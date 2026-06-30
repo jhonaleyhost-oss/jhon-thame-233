@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>404 Not Found - {{ config('app.name', 'AlxZen Panel') }}</title>
+    <title>404 Not Found - {{ config('app.name', 'Jhonaley Store Panel') }}</title>
     <style>
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -70,7 +70,7 @@
         <h2>Page Not Found</h2>
         <p>The page you are looking for doesn't exist or has been moved.</p>
         <a href="/">Return to Dashboard</a>
-        <div class="brand">AlxZen Panel</div>
+        <div class="brand">Jhonaley Store Panel</div>
     </div>
 </body>
 </html>
