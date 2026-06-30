@@ -149,8 +149,30 @@ fi
 # ─── Step 4: DB migration ────────────────────────────────────────────────────
 step "STEP 4  Database migration"
 cd "$PANEL_DIR"
+
+# Pastikan composer dependencies ada (vendor/autoload.php)
+if [ ! -f "$PANEL_DIR/vendor/autoload.php" ]; then
+    warn "vendor/autoload.php tidak ada. Jalankan composer install..."
+    command -v composer >/dev/null || err "Composer tidak terinstall. Install dulu: curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer"
+    set +e
+    sudo -u www-data composer install --no-dev --optimize-autoloader --no-interaction 2>&1 | tail -20
+    COMPOSER_EXIT=${PIPESTATUS[0]}
+    if [ $COMPOSER_EXIT -ne 0 ]; then
+        # coba sebagai root kalau gagal sebagai www-data
+        composer install --no-dev --optimize-autoloader --no-interaction 2>&1 | tail -20
+        COMPOSER_EXIT=${PIPESTATUS[0]}
+    fi
+    set -e
+    [ $COMPOSER_EXIT -eq 0 ] && [ -f "$PANEL_DIR/vendor/autoload.php" ] \
+        && ok "Composer dependencies terinstall." \
+        || err "composer install gagal. Coba manual: cd $PANEL_DIR && composer install --no-dev"
+fi
+
+set +e
 php artisan migrate --force 2>&1 | tail -10
-ok "Migration selesai."
+MIG_EXIT=${PIPESTATUS[0]}
+set -e
+[ $MIG_EXIT -eq 0 ] && ok "Migration selesai." || err "Migration gagal (exit $MIG_EXIT). Restore: cd /var/www && rm -rf pterodactyl && tar -xzf $BK_FILES"
 
 # ─── Step 5: Frontend rebuild ────────────────────────────────────────────────
 step "STEP 5  Rebuild frontend (yarn build:production)"
@@ -161,10 +183,18 @@ cd "$PANEL_DIR"
 NODE_VER=$(node -v 2>/dev/null | sed 's/v//' | cut -d. -f1 || echo 0)
 if [ "${NODE_VER:-0}" -lt 22 ]; then
     warn "Node.js versi terlalu lama (v$NODE_VER). Install Node.js 22 LTS..."
-    curl -fsSL https://deb.nodesource.com/setup_22.x | bash - >/dev/null 2>&1
-    apt-get install -y nodejs >/dev/null 2>&1
-    npm install -g yarn >/dev/null 2>&1
-    ok "Node.js $(node -v) terinstall."
+    set +e
+    curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
+    apt-get install -y nodejs
+    npm install -g yarn
+    NODE_INSTALL_EXIT=$?
+    set -e
+    NEW_NODE=$(node -v 2>/dev/null || echo "none")
+    NEW_VER=$(echo "$NEW_NODE" | sed 's/v//' | cut -d. -f1)
+    if [ "${NEW_VER:-0}" -lt 22 ]; then
+        err "Install Node.js 22 gagal (current: $NEW_NODE). Install manual: curl -fsSL https://deb.nodesource.com/setup_22.x | sudo bash - && sudo apt-get install -y nodejs"
+    fi
+    ok "Node.js $NEW_NODE terinstall."
 fi
 
 # Pastikan node_modules ada
