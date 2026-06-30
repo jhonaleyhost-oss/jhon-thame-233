@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{{ config('app.name', 'alxzen') }}</title>
+        <title>{{ config('app.name', 'jhonaley-store') }}</title>
 
         @section('meta')
             <meta charset="utf-8">

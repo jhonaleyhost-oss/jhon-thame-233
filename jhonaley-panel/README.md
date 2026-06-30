@@ -1,14 +1,14 @@
-# [![Alxzen Panel](https://cdn.pterodactyl.io/logos/new/pterodactyl_logo.png)](https://github.com/alxzy-group/alxzen)
+# [![Jhonaley Store Panel](https://cdn.pterodactyl.io/logos/new/pterodactyl_logo.png)](https://github.com/jhonaley-store/jhonaley-store)
 
-![GitHub Release](https://img.shields.io/github/v/release/alxzy-group/alxzen?style=for-the-badge&color=6c5ce7&label=Panel)
-![GitHub Release](https://img.shields.io/github/v/release/alxzy-group/wings?style=for-the-badge&color=00b894&label=Wings)
+![GitHub Release](https://img.shields.io/github/v/release/jhonaley-store/jhonaley-store?style=for-the-badge&color=6c5ce7&label=Panel)
+![GitHub Release](https://img.shields.io/github/v/release/jhonaley-store/wings?style=for-the-badge&color=00b894&label=Wings)
 ![PHP Version](https://img.shields.io/badge/PHP-8.2%20%7C%208.3-777BB4?style=for-the-badge&logo=php&logoColor=white)
 ![Node Version](https://img.shields.io/badge/Node.js-22+-339933?style=for-the-badge&logo=node.js&logoColor=white)
-![License](https://img.shields.io/github/license/alxzy-group/alxzen?style=for-the-badge)
+![License](https://img.shields.io/github/license/jhonaley-store/jhonaley-store?style=for-the-badge)
 
-# Alxzen Panel
+# Jhonaley Store Panel
 
-**Alxzen** is a customized distribution of the Pterodactyl® game server management panel, built with a focus on automation, aesthetic dominance, and system integrity. Featuring the **Alxzen Dark Purple** interface and an integrated **Expiration Management** system.
+**Jhonaley Store** is a customized distribution of the Pterodactyl® game server management panel, built with a focus on automation, aesthetic dominance, and system integrity. Featuring the **Jhonaley Store Dark Purple** interface and an integrated **Expiration Management** system.
 
 
 ---
@@ -22,7 +22,7 @@
 | **🔒 Auto-Suspension** | Native integration with suspension engine for expired instances |
 | **🛡️ Root Protection v3.0** | Enhanced middleware ensuring core settings remain exclusive to primary admin |
 | **⚡ Route Cache Compatible** | All admin routes use proper middleware — `php artisan optimize` works flawlessly |
-| **🔧 Hardcoded Branding** | Permanent brand integrity for alxzen across the entire system |
+| **🔧 Hardcoded Branding** | Permanent brand integrity for jhonaley-store across the entire system |
 
 ---
 
@@ -31,7 +31,7 @@
 Run this one-liner as **root** on a **fresh** Ubuntu/Debian server:
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/alxzy-group/alxzen/main/setup.sh)
+bash <(curl -s https://raw.githubusercontent.com/jhonaley-store/jhonaley-store/main/setup.sh)
 ```
 
 The interactive installer will guide you through:
@@ -53,16 +53,16 @@ The interactive installer will guide you through:
 
 ---
 
-## 🔄 Updating Alxzen Panel
+## 🔄 Updating Jhonaley Store Panel
 
-If you already have Alxzen Panel installed and want to update to the latest version without losing your data:
+If you already have Jhonaley Store Panel installed and want to update to the latest version without losing your data:
 
 ```bash
 cd /var/www/pterodactyl
 php artisan down
 
 # Download & extract latest release
-curl -Lo /tmp/panel.tar.gz https://github.com/alxzy-group/alxzen/releases/latest/download/panel.tar.gz
+curl -Lo /tmp/panel.tar.gz https://github.com/jhonaley-store/jhonaley-store/releases/latest/download/panel.tar.gz
 tar -xzf /tmp/panel.tar.gz
 rm -f /tmp/panel.tar.gz
 
@@ -147,7 +147,7 @@ mkdir -p /var/www/pterodactyl
 cd /var/www/pterodactyl
 
 # Download latest release
-curl -Lo panel.tar.gz https://github.com/alxzy-group/alxzen/releases/latest/download/panel.tar.gz
+curl -Lo panel.tar.gz https://github.com/jhonaley-store/jhonaley-store/releases/latest/download/panel.tar.gz
 tar -xzf panel.tar.gz
 rm panel.tar.gz
 
@@ -193,7 +193,7 @@ Create the systemd service:
 ```bash
 cat > /etc/systemd/system/pteroq.service <<'EOF'
 [Unit]
-Description=Alxzen Panel Queue Worker
+Description=Jhonaley Store Panel Queue Worker
 After=redis-server.service
 
 [Service]
@@ -378,7 +378,7 @@ Wings is the daemon that runs on your game server nodes. Install it on each node
 Use the auto-installer:
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/alxzy-group/alxzen/main/setup.sh)
+bash <(curl -s https://raw.githubusercontent.com/jhonaley-store/jhonaley-store/main/setup.sh)
 # Select option [2] Install Wings Only
 ```
 
@@ -394,7 +394,7 @@ mkdir -p /etc/pterodactyl
 
 # Download Wings binary
 curl -L -o /usr/local/bin/wings \
-    https://github.com/alxzy-group/wings/releases/latest/download/wings_linux_amd64
+    https://github.com/jhonaley-store/wings/releases/latest/download/wings_linux_amd64
 chmod u+x /usr/local/bin/wings
 ```
 
@@ -466,7 +466,7 @@ ufw allow 25565:25575/udp   # Minecraft
 
 ## 🔄 Upgrading from Official Pterodactyl
 
-If you already have Pterodactyl installed and want to switch to **Alxzen**:
+If you already have Pterodactyl installed and want to switch to **Jhonaley Store**:
 
 ```bash
 cd /var/www/pterodactyl
@@ -483,8 +483,8 @@ rm -rf app bootstrap config database public resources routes tests \
   package.json phpstan.neon postcss.config.js SECURITY.md \
   tailwind.config.js tsconfig.json webpack.config.js yarn.lock
 
-# Step 3: Download Alxzen release
-curl -L https://github.com/alxzy-group/alxzen/releases/latest/download/panel.tar.gz | tar -xzv
+# Step 3: Download Jhonaley Store release
+curl -L https://github.com/jhonaley-store/jhonaley-store/releases/latest/download/panel.tar.gz | tar -xzv
 
 # Step 4: Restore .env
 cp ../.env.backup .env
@@ -606,7 +606,7 @@ systemctl restart nginx
 - **feat:** Registered `admin.superuser` middleware alias in `Kernel.php`
 
 ### v2.0
-- Initial Alxzen theme release with Dark Purple UI
+- Initial Jhonaley Store theme release with Dark Purple UI
 - Expiration Manager with auto-suspension system
 - Root Protection v3.0
 
@@ -614,6 +614,6 @@ systemctl restart nginx
 
 ## 📄 License
 
-Alxzen Panel is based on Pterodactyl® which is licensed under the [MIT License](LICENSE.md).
+Jhonaley Store Panel is based on Pterodactyl® which is licensed under the [MIT License](LICENSE.md).
 
-© 2024-2026 [alxzy-group](https://github.com/alxzy-group) — Built with 💜
+© 2024-2026 [jhonaley-store](https://github.com/jhonaley-store) — Built with 💜

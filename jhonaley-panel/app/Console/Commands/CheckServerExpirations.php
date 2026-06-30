@@ -39,7 +39,7 @@ class CheckServerExpirations extends Command
      */
     public function handle()
 {
-    $this->info('ALXZEN PROTECT: Scanning...');
+    $this->info('JHONALEY-STORE PROTECT: Scanning...');
 
     $servers = \Pterodactyl\Models\Server::query()
         ->whereNotNull('expires_at')

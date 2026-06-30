@@ -14,23 +14,23 @@
 
 @section('content')
 <div class="row">
-    {{-- Box Informasi Sistem Alxzen --}}
+    {{-- Box Informasi Sistem Jhonaley Store --}}
     <div class="col-md-6">
         <div class="box box-success">
             <div class="box-header with-border">
                 <h3 class="box-title"><i class="fa fa-info-circle"></i> System Information</h3>
             </div>
             <div class="box-body">
-                You are running Alxzen Panel version <code>{{ config('app.version') }}</code>. Your panel is up-to-date!
+                You are running Jhonaley Store Panel version <code>{{ config('app.version') }}</code>. Your panel is up-to-date!
             </div>
         </div>
     </div>
 
-    {{-- Box Informasi Custom Branding (alxzen) --}}
+    {{-- Box Informasi Custom Branding (jhonaley-store) --}}
     <div class="col-md-6">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title"><i class="fa fa-shield"></i> Alxzen Branding & Protection</h3>
+                <h3 class="box-title"><i class="fa fa-shield"></i> Jhonaley Store Branding & Protection</h3>
             </div>
             <div class="box-body">
                 <ul class="list-unstyled">

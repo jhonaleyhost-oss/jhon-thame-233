@@ -17,7 +17,7 @@
 
 ### Fixed
 - **File Manager Context Menu**: Fixed Z-index and stacking context issues causing the file action dropdowns to be hidden behind subsequent table rows.
-- **File Manager Theme**: Updated the `DropdownMenu` to strictly adhere to the Alxzen dark mode aesthetic.
+- **File Manager Theme**: Updated the `DropdownMenu` to strictly adhere to the Jhonaley Store dark mode aesthetic.
 
 This file is a running track of new features and fixes to each version of the panel released starting with `v0.4.0`.
 
@@ -41,7 +41,7 @@ This project follows [Semantic Versioning](http://semver.org) guidelines.
 
 ---
 
-## v3.4 (alxzen UI Polish & Dropdown Fix)
+## v3.4 (jhonaley-store UI Polish & Dropdown Fix)
 ### Added
 * Server-specific **Management Console** dropdown in the left sidebar using accordion-style animation, replacing the old always-expanded flat list.
 * Smooth CSS Grid `grid-template-rows` animation (`0fr → 1fr`) for the dropdown — resolves the blank/invisible menu bug that occurred with the old `max-height` transition approach.
@@ -61,7 +61,7 @@ This project follows [Semantic Versioning](http://semver.org) guidelines.
 
 ---
 
-## v3.3 (alxzen UI Overhaul)
+## v3.3 (jhonaley-store UI Overhaul)
 ### Added
 * Announcements feature for admins to broadcast messages to users on the Dashboard and Console.
 * Glassmorphism aesthetics across Server Stats, File Manager, and Code Editor.
@@ -71,15 +71,15 @@ This project follows [Semantic Versioning](http://semver.org) guidelines.
 * Removed horizontal SubNavigation bar in favor of the Hamburger menu for a cleaner layout.
 * Server File Manager UI upgraded with glowing hover effects and rounded corners.
 * Code Editor UI wrapper modernized with neon borders.
-* Wings container name prefixes updated from `pterodactyl~` to `alxzen~`.
+* Wings container name prefixes updated from `pterodactyl~` to `jhonaley-store~`.
 
-## v3.0 (alxzen Big Update)
+## v3.0 (jhonaley-store Big Update)
 ### Added
 * Standalone fork capability, separating entirely from Pterodactyl core dependency for installation.
 * Root Protection v3.0 extended to Locations and Mounts, restricting deletion strictly to the root administrator (ID 1).
 * Comprehensive Ubuntu 22.04/24.04 environment setup instructions in README.md.
-* `Credits: Based on Pterodactyl` attribution in the Admin Index to comply with licensing while maintaining full alxzen branding.
-* Full UI rebranding to `alxzen` and `alxzen Software` replacing all Pterodactyl references across the panel.
+* `Credits: Based on Pterodactyl` attribution in the Admin Index to comply with licensing while maintaining full jhonaley-store branding.
+* Full UI rebranding to `jhonaley-store` and `jhonaley-store Software` replacing all Pterodactyl references across the panel.
 
 ### Fixed
 * Server expiration bug where active servers (with null status) were not being correctly identified and suspended.

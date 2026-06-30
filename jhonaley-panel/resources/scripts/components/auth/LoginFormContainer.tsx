@@ -116,11 +116,11 @@ const LoginFormContainer = forwardRef<HTMLFormElement, Props>(({ title, ...props
                         &copy; 2015 - {new Date().getFullYear()}&nbsp;
                         <a
                             rel={'noopener nofollow noreferrer'}
-                            href={'https://github.com/alxzy-group/alxzen'}
+                            href={'https://github.com/jhonaley-store/jhonaley-store'}
                             target={'_blank'}
                             css={tw`no-underline text-indigo-400 hover:text-indigo-300 transition-colors`}
                         >
-                            alxzen Software
+                            jhonaley-store Software
                         </a>
                     </p>
                 </FormWrapper>

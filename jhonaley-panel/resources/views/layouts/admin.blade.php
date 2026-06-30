@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>{{ config('app.name', 'alxzen') }} - @yield('title')</title>
+        <title>{{ config('app.name', 'jhonaley-store') }} - @yield('title')</title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <meta name="_token" content="{{ csrf_token() }}">
 
@@ -226,7 +226,7 @@
                     @if(config('app.logo'))
                         <img src="{{ config('app.logo') }}" alt="Logo" style="max-height: 35px; max-width: 100%; vertical-align: middle;">
                     @else
-                        <span>{{ config('app.name', 'alxzen') }}</span>
+                        <span>{{ config('app.name', 'jhonaley-store') }}</span>
                     @endif
                 </a>
                 <nav class="navbar navbar-static-top">
@@ -387,7 +387,7 @@
                     <strong><i class="fa fa-fw {{ $appIsGit ? 'fa-git-square' : 'fa-code-fork' }}"></i></strong> {{ $appVersion }}<br />
                     <strong><i class="fa fa-fw fa-clock-o"></i></strong> {{ round(microtime(true) - LARAVEL_START, 3) }}s
                 </div>
-                Copyright &copy; 2015 - {{ date('Y') }} <a href="https://github.com/alxzy-group/alxzen">alxzen Software</a>.
+                Copyright &copy; 2015 - {{ date('Y') }} <a href="https://github.com/jhonaley-store/jhonaley-store">jhonaley-store Software</a>.
             </footer>
         </div>
         @section('footer-scripts')
